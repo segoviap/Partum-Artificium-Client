@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Constants\EnvironmentConstants.cs" />
     <Compile Include="Constants\PartumArtificiumConstants.cs" />
+    <Compile Include="Constants\RenderSystemConstants.cs" />
     <Compile Include="Constants\RSSConstants.cs" />
     <Compile Include="EnvironmentDetails.cs" />
     <Compile Include="NewsArticle.cs" />

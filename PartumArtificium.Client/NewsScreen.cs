@@ -15,11 +15,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using PartumArtificium.View;
 
 namespace PartumArtificium.Client
 {
-	public partial class NewsScreen : Form, INewsView
+	public partial class NewsScreen : Form
 	{
 		/// <summary> </summary>
 		public NewsScreen()
@@ -37,22 +36,8 @@ namespace PartumArtificium.Client
             //Needs to be put in proper design
             this.Close();
 
-            MainOgreStartup startup = new MainOgreStartup();
-            startup.InitializeOgre();
-		}
-
-		#endregion
-
-		#region INewsView Members
-
-		public string Version
-		{
-			set { throw new NotImplementedException(); }
-		}
-
-		public string Title
-		{
-			set { this.Title = value; }
+            MainWindow startup = new MainWindow();
+            startup.InitializeWindow();
 		}
 
 		#endregion

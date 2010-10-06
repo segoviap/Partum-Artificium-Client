@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{97FE90F5-B9EE-40CB-8F34-47738A7014E4}</ProjectGuid>
+    <ProjectGuid>{15DAA04A-76B7-422D-B412-6C7FC6318E87}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PartumArtificium.Presenter</RootNamespace>
-    <AssemblyName>PartumArtificium.Presenter</AssemblyName>
+    <RootNamespace>PartumArtificium.Models</RootNamespace>
+    <AssemblyName>PartumArtificium.Models</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -47,6 +47,14 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Mogre, Version=1.7.1.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PartumArtificium.Client\Resources\Mogre.dll</HintPath>
+    </Reference>
+    <Reference Include="MOIS, Version=1.1.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PartumArtificium.Client\Resources\MOIS.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -61,17 +69,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NewsPresenter.cs" />
+    <Compile Include="PlayerCharacters\CharacterController.cs" />
+    <Compile Include="PlayerCharacters\CharacterManager.cs" />
+    <Compile Include="PlayerCharacters\SinbadController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PartumArtificium.Controller\PartumArtificium.Controller.csproj">
-      <Project>{3758D857-6735-4A93-84A3-A3E71F2EA8EF}</Project>
-      <Name>PartumArtificium.Controller</Name>
+    <ProjectReference Include="..\PartumArtificium.Framework\PartumArtificium.Framework.csproj">
+      <Project>{57D9BA04-FF2D-40CE-BB2B-1A372D760774}</Project>
+      <Name>PartumArtificium.Framework</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PartumArtificium.View\PartumArtificium.View.csproj">
-      <Project>{7F885924-5661-4A94-A94D-A2EA0CF5792D}</Project>
-      <Name>PartumArtificium.View</Name>
+    <ProjectReference Include="..\PartumArtificium\PartumArtificium.csproj">
+      <Project>{EA903B03-2F09-4B52-AF04-CF87CA7E47F7}</Project>
+      <Name>PartumArtificium</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
