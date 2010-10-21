@@ -24,10 +24,12 @@ namespace PartumArtificium.Client
 	{
 		private Root _root;
         private RenderWindow _renderWindow;
+		private SceneManager _sceneManager;
         private Keyboard _keyboard;
         private Mouse _mouse;
         private MOIS.InputManager _inputManager;
         private bool _shutingDown = false;
+		private Viewport _viewport;
 
         /// <summary> Initialize 3D window</summary>
 		public void InitializeWindow()
@@ -104,13 +106,30 @@ namespace PartumArtificium.Client
 		/// <summary> </summary>
 		protected void CreateScene()
 		{
-			SceneManager sceneMgr = _root.CreateSceneManager(SceneType.ST_GENERIC);
-			Camera camera = sceneMgr.CreateCamera("Camera");
-			camera.Position = new Mogre.Vector3(0, 0, 150);
-			camera.LookAt(Mogre.Vector3.ZERO);
-			_renderWindow.AddViewport(camera);
+			_sceneManager = _root.CreateSceneManager(SceneType.ST_GENERIC);
+			Camera camera = _sceneManager.CreateCamera("Camera");
+			camera.Position = new Mogre.Vector3(1683, 50, 2116);
+			camera.LookAt(new Mogre.Vector3(1963, 50, 1660));
+			camera.NearClipDistance = 0.1f;
+			camera.FarClipDistance = 50000;
 
-			//Could add something to the scene.  To do this need the ogrehead.mesh resource.
+			_viewport = _renderWindow.AddViewport(camera);
+
+			MaterialManager.Singleton.SetDefaultTextureFiltering(TextureFilterOptions.TFO_ANISOTROPIC);
+			MaterialManager.Singleton.DefaultAnisotropy = 7;
+
+			Mogre.Vector3 lightDirection = new Mogre.Vector3(0.55f, -0.3f, 0.75f);
+			lightDirection.Normalise();
+
+			Light light = _sceneManager.CreateLight("tstLight");
+			light.Type = Light.LightTypes.LT_DIRECTIONAL;
+			light.Direction = lightDirection;
+			light.DiffuseColour = Mogre.ColourValue.White;
+			light.SpecularColour = new ColourValue(0.4f, 0.4f, 0.4f);
+
+			_sceneManager.AmbientLight = new ColourValue(0.2f, 0.2f, 0.2f);
+
+            _sceneManager.SetWorldGeometry("terrain.cfg");
 		}
 
 		/// <summary> </summary>
@@ -173,7 +192,7 @@ namespace PartumArtificium.Client
 			_keyboard.KeyReleased += new KeyListener.KeyReleasedHandler(_keyboard_KeyReleased);
 		}
 
-		protected bool _keyboard_KeyReleased(KeyEvent arg)
+		protected bool _keyboard_KeyReleased(KeyEvent e)
 		{
 			return true;
 		}

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{15DAA04A-76B7-422D-B412-6C7FC6318E87}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -73,6 +73,7 @@
     <Compile Include="PlayerCharacters\CharacterManager.cs" />
     <Compile Include="PlayerCharacters\SinbadController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SkyboxManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PartumArtificium.Framework\PartumArtificium.Framework.csproj">
